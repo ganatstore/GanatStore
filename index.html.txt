@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>محل جنات | Ganat Store</title>
+
+  <style>
+    :root {
+      --beige: #f7efe5;
+      --light-pink: #f4dce2;
+      --pink: #d99aa9;
+      --dark-pink: #a95f72;
+      --brown: #5c4640;
+      --white: #fffaf7;
+      --shadow: 0 10px 30px rgba(92, 70, 64, 0.10);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: var(--beige);
+      color: var(--brown);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 250, 247, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 3px 20px rgba(92, 70, 64, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--dark-pink);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--brown);
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--brown);
+      font-weight: 600;
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--dark-pink);
+    }
+
+    .language-btn {
+      border: none;
+      background: var(--dark-pink);
+      color: white;
+      padding: 9px 15px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      background: var(--light-pink);
+      top: -160px;
+      right: -100px;
+    }
+
+    .hero::after {
+      width: 350px;
+      height: 350px;
+      background: #ead9c9;
+      bottom: -160px;
+      left: -100px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .small-title {
+      color: var(--dark-pink);
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      color: var(--dark-pink);
+      margin-bottom: 5px;
+    }
+
+    .hero h2 {
+      font-size: clamp(22px, 4vw, 38px);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 18px;
+      color: #765f58;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.25s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--dark-pink);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--dark-pink);
+      border: 1px solid var(--pink);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .section-container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: var(--dark-pink);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #806c65;
+    }
+
+    .categories {
+      background: var(--white);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .category-card {
+      background: var(--beige);
+      padding: 35px 25px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+      border: 1px solid rgba(217,154,169,0.25);
+    }
+
+    .category-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .category-icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .category-card h3 {
+      color: var(--dark-pink);
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .about-box {
+      background: var(--white);
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-box h3 {
+      color: var(--dark-pink);
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .owner-name {
+      font-size: 30px;
+      font-weight: bold;
+      color: var(--brown);
+      margin: 15px 0;
+    }
+
+    .reviews {
+      background: var(--white);
+    }
+
+    .sample-notice {
+      text-align: center;
+      background: #fff2f4;
+      border: 1px solid var(--pink);
+      padding: 12px;
+      border-radius: 12px;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 14px;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .review {
+      background: var(--beige);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      color: #c68a98;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .review p {
+      font-style: italic;
+      color: #705d57;
+    }
+
+    .review strong {
+      display: block;
+      margin-top: 15px;
+      color: var(--dark-pink);
+    }
+
+    .contact {
+      background: var(--beige);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .contact-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+      color: var(--dark-pink);
+      margin-bottom: 10px;
+    }
+
+    .contact-card a {
+      color: var(--brown);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-card a:hover {
+      color: var(--dark-pink);
+    }
+
+    .map-button {
+      margin-top: 15px;
+    }
+
+    /* Prevent phone numbers from being rearranged by RTL */
+    .phone-number {
+      direction: ltr !important;
+      unicode-bidi: isolate;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    footer {
+      background: #5c4640;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer h2 {
+      color: #f4dce2;
+      margin-bottom: 5px;
+    }
+
+    footer p {
+      opacity: 0.85;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+
+      .nav-container {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .category-grid,
+      .review-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+
+      section {
+        padding: 60px 15px;
+      }
+
+      .about-box {
+        padding: 30px 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .nav-links {
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title h2 {
+        font-size: 31px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="nav-container">
+
+      <a href="#home" class="brand">
+        جنات
+        <span>GANAT STORE</span>
+      </a>
+
+      <ul class="nav-links">
+        <li>
+          <a href="#home"
+             data-ar="الرئيسية"
+             data-en="Home">
+             الرئيسية
+          </a>
+        </li>
+
+        <li>
+          <a href="#categories"
+             data-ar="الأقسام"
+             data-en="Categories">
+             الأقسام
+          </a>
+        </li>
+
+        <li>
+          <a href="#about"
+             data-ar="عن جنات"
+             data-en="About">
+             عن جنات
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact"
+             data-ar="تواصل معنا"
+             data-en="Contact">
+             تواصل معنا
+          </a>
+        </li>
+      </ul>
+
+      <button class="language-btn" onclick="toggleLanguage()">
+        English
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        GANAT STORE
+      </div>
+
+      <h1
+        data-ar="جنات"
+        data-en="GANAT">
+        جنات
+      </h1>
+
+      <h2
+        data-ar="أناقتكِ تبدأ من هنا"
+        data-en="Where Your Elegance Begins">
+        أناقتكِ تبدأ من هنا
+      </h2>
+
+      <p
+        data-ar="كل ما تحتاجينه من مستحضرات التجميل والعطور والحجاب والإكسسوارات والملابس في مكان واحد."
+        data-en="Discover makeup, perfumes, hijabs, accessories, clothing and more, all in one place.">
+        كل ما تحتاجينه من مستحضرات التجميل والعطور والحجاب والإكسسوارات والملابس في مكان واحد.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#categories"
+           class="btn btn-primary"
+           data-ar="استكشفي الأقسام"
+           data-en="Explore Categories">
+          استكشفي الأقسام
+        </a>
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=31.098435,31.301351"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-secondary"
+          data-ar="📍 موقع المحل"
+          data-en="📍 Store Location">
+          📍 موقع المحل
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="categories" id="categories">
+
+    <div class="section-container">
+
+      <div class="section-title">
+
+        <h2
+          data-ar="أقسامنا"
+          data-en="Our Categories">
+          أقسامنا
+        </h2>
+
+        <p
+          data-ar="اختيارات متنوعة لتكملي إطلالتكِ"
+          data-en="Everything you need to complete your look.">
+          اختيارات متنوعة لتكملي إطلالتكِ
+        </p>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        <div class="category-card">
+          <div class="category-icon">🧕</div>
+
+          <h3
+            data-ar="الحجاب والنقاب"
+            data-en="Hijabs & Niqabs">
+            الحجاب والنقاب
+          </h3>
+
+          <p
+            data-ar="تشكيلة متنوعة من الحجاب والنقاب."
+            data-en="A variety of hijabs and niqabs.">
+            تشكيلة متنوعة من الحجاب والنقاب.
+          </p>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-icon">💄</div>
+
+          <h3
+            data-ar="مستحضرات التجميل"
+            data-en="Makeup">
+            مستحضرات التجميل
+          </h3>
+
+          <p
+            data-ar="جميع أنواع مستحضرات التجميل."
+            data-en="All kinds of makeup and beauty products.">
+            جميع أنواع مستحضرات التجميل.
+          </p>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-icon">🌸</div>
+
+          <h3
+            data-ar="العطور"
+            data-en="Perfumes">
+            العطور
+          </h3>
+
+          <p
+            data-ar="مجموعة متنوعة من العطور."
+            data-en="A wide selection of perfumes.">
+            مجموعة متنوعة من العطور.
+          </p>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-icon">✨</div>
+
+          <h3
+            data-ar="بودي سبلاش"
+            data-en="Body Splashes">
+            بودي سبلاش
+          </h3>
+
+          <p
+            data-ar="روائح منعشة ومميزة."
+            data-en="Fresh and beautiful fragrances.">
+            روائح منعشة ومميزة.
+          </p>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-icon">💎</div>
+
+          <h3
+            data-ar="إكسسوارات ستانلس"
+            data-en="Stainless Accessories">
+            إكسسوارات ستانلس
+          </h3>
+
+          <p
+            data-ar="إكسسوارات أنيقة وعصرية."
+            data-en="Elegant and modern stainless accessories.">
+            إكسسوارات أنيقة وعصرية.
+          </p>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-icon">🎀</div>
+
+          <h3
+            data-ar="ملابس وإكسسوارات شعر"
+            data-en="Clothing & Hair Accessories">
+            ملابس وإكسسوارات شعر
+          </h3>
+
+          <p
+            data-ar="ملابس متنوعة وإكسسوارات للشعر."
+            data-en="Extra clothing and stylish hair accessories.">
+            ملابس متنوعة وإكسسوارات للشعر.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="section-container">
+
+      <div class="section-title">
+
+        <h2
+          data-ar="عن جنات"
+          data-en="About Ganat">
+          عن جنات
+        </h2>
+
+        <p
+          data-ar="مكان يجمع الأناقة والجمال في مكان واحد."
+          data-en="A place where beauty and elegance come together.">
+          مكان يجمع الأناقة والجمال في مكان واحد.
+        </p>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="about-box">
+
+          <h3
+            data-ar="محل جنات"
+            data-en="Ganat Store">
+            محل جنات
+          </h3>
+
+          <p
+            data-ar="محل جنات هو وجهتكِ لمجموعة متنوعة من مستحضرات التجميل والعطور والحجاب والنقاب والإكسسوارات والملابس وإكسسوارات الشعر."
+            data-en="Ganat Store is your destination for makeup, perfumes, hijabs, niqabs, accessories, clothing and hair accessories.">
+            محل جنات هو وجهتكِ لمجموعة متنوعة من مستحضرات التجميل والعطور والحجاب والنقاب والإكسسوارات والملابس وإكسسوارات الشعر.
+          </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+          <h3
+            data-ar="المؤسس والمالك"
+            data-en="Founder & Owner">
+            المؤسس والمالك
+          </h3>
+
+          <div class="owner-name">
+            مصطفى عمارة
+          </div>
+
+          <p
+            data-ar="نسعى لتقديم تجربة جميلة ومريحة لكل زائرات محل جنات."
+            data-en="Our goal is to provide a beautiful and welcoming experience for every Ganat customer.">
+            نسعى لتقديم تجربة جميلة ومريحة لكل زائرات محل جنات.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REVIEWS -->
+
+  <section class="reviews">
+
+    <div class="section-container">
+
+      <div class="section-title">
+
+        <h2
+          data-ar="آراء العملاء"
+          data-en="Customer Love">
+          آراء العملاء
+        </h2>
+
+        <p
+          data-ar="تجارب زائراتنا"
+          data-en="What our customers think">
+          تجارب زائراتنا
+        </p>
+
+      </div>
+
+
+      <div class="sample-notice"
+           data-ar="⚠️ هذه آراء تجريبية مؤقتة وليست تقييمات حقيقية. استبدلوها بآراء العملاء الفعلية قبل نشر الموقع."
+           data-en="⚠️ These are temporary sample reviews, not real customer reviews. Replace them with genuine customer feedback before publishing.">
+        ⚠️ هذه آراء تجريبية مؤقتة وليست تقييمات حقيقية. استبدلوها بآراء العملاء الفعلية قبل نشر الموقع.
+      </div>
+
+
+      <div class="review-grid">
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+
+          <p
+            data-ar="“تجربة جميلة وتشكيلة متنوعة جدًا.”"
+            data-en="“A lovely experience with a great variety of products.”">
+            “تجربة جميلة وتشكيلة متنوعة جدًا.”
+          </p>
+
+          <strong
+            data-ar="— تقييم تجريبي"
+            data-en="— Sample Review">
+            — تقييم تجريبي
+          </strong>
+        </div>
+
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+
+          <p
+            data-ar="“مكان جميل وفيه حاجات كتير متنوعة.”"
+            data-en="“A beautiful store with lots of different options.”">
+            “مكان جميل وفيه حاجات كتير متنوعة.”
+          </p>
+
+          <strong
+            data-ar="— تقييم تجريبي"
+            data-en="— Sample Review">
+            — تقييم تجريبي
+          </strong>
+        </div>
+
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+
+          <p
+            data-ar="“تشكيلة رائعة ومناسبة لمختلف الأذواق.”"
+            data-en="“A wonderful selection with something for different tastes.”">
+            “تشكيلة رائعة ومناسبة لمختلف الأذواق.”
+          </p>
+
+          <strong
+            data-ar="— تقييم تجريبي"
+            data-en="— Sample Review">
+            — تقييم تجريبي
+          </strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <div class="section-container">
+
+      <div class="section-title">
+
+        <h2
+          data-ar="تواصلي معنا"
+          data-en="Contact Us">
+          تواصلي معنا
+        </h2>
+
+        <p
+          data-ar="يسعدنا تواصلكِ معنا"
+          data-en="We'd love to hear from you.">
+          يسعدنا تواصلكِ معنا
+        </p>
+
+      </div>
+
+
+      <div class="contact-grid">
+
+
+        <!-- PHONE -->
+
+        <div class="contact-card">
+
+          <h3
+            data-ar="📞 الهاتف"
+            data-en="📞 Phone">
+            📞 الهاتف
+          </h3>
+
+          <a
+            class="phone-number"
+            href="tel:+201024361512"
+            dir="ltr">
+            +20 102 436 1512
+          </a>
+
+        </div>
+
+
+        <!-- WHATSAPP -->
+
+        <div class="contact-card">
+
+          <h3
+            data-ar="💬 واتساب"
+            data-en="💬 WhatsApp">
+            💬 واتساب
+          </h3>
+
+          <a
+            href="https://wa.me/201024361512"
+            target="_blank"
+            rel="noopener"
+            data-ar="تواصلي معنا على واتساب"
+            data-en="Message us on WhatsApp">
+            تواصلي معنا على واتساب
+          </a>
+
+        </div>
+
+
+        <!-- FACEBOOK -->
+
+        <div class="contact-card">
+
+          <h3
+            data-ar="📘 فيسبوك"
+            data-en="📘 Facebook">
+            📘 فيسبوك
+          </h3>
+
+          <a
+            href="https://www.facebook.com/share/14pHNsggfNa/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener"
+            data-ar="صفحة جنات على فيسبوك"
+            data-en="Ganat Store on Facebook">
+            صفحة جنات على فيسبوك
+          </a>
+
+        </div>
+
+
+        <!-- LOCATION -->
+
+        <div class="contact-card">
+
+          <h3
+            data-ar="📍 العنوان"
+            data-en="📍 Location">
+            📍 العنوان
+          </h3>
+
+          <p
+            data-ar="نبروه، شارع المدارس، جنب السيد أحمد"
+            data-en="Nabarouh, Al Madares Street, next to Al Sayed Ahmed">
+            نبروه، شارع المدارس، جنب السيد أحمد
+          </p>
+
+          <a
+            class="btn btn-primary map-button"
+            href="https://www.google.com/maps/search/?api=1&query=31.098435,31.301351"
+            target="_blank"
+            rel="noopener"
+            data-ar="فتح الموقع على الخريطة"
+            data-en="Open in Google Maps">
+            فتح الموقع على الخريطة
+          </a>
+
+        </div>
+
+
+        <!-- HOURS -->
+
+        <div class="contact-card">
+
+          <h3
+            data-ar="🕐 مواعيد العمل"
+            data-en="🕐 Opening Hours">
+            🕐 مواعيد العمل
+          </h3>
+
+          <p
+            data-ar="يوميًا من 1 ظهرًا إلى 12 منتصف الليل"
+            data-en="Daily from 1 PM to 12 AM">
+            يوميًا من 1 ظهرًا إلى 12 منتصف الليل
+          </p>
+
+        </div>
+
+
+        <!-- OWNER -->
+
+        <div class="contact-card">
+
+          <h3
+            data-ar="👤 المالك"
+            data-en="👤 Owner">
+            👤 المالك
+          </h3>
+
+          <p
+            data-ar="مصطفى عمارة"
+            data-en="Mostafa Emara">
+            مصطفى عمارة
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h2>جنات | GANAT STORE</h2>
+
+    <p
+      data-ar="أناقتكِ تبدأ من هنا"
+      data-en="Where Your Elegance Begins">
+      أناقتكِ تبدأ من هنا
+    </p>
+
+    <br>
+
+    <p>
+      © 2026 Ganat Store. All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    let currentLanguage =
+      localStorage.getItem("ganatLanguage") || "ar";
+
+
+    function updateLanguage() {
+
+      document.documentElement.lang = currentLanguage;
+
+      document.documentElement.dir =
+        currentLanguage === "ar" ? "rtl" : "ltr";
+
+
+      document.querySelectorAll("[data-ar]").forEach(element => {
+
+        element.textContent =
+          element.getAttribute("data-" + currentLanguage);
+
+      });
+
+
+      document.querySelector(".language-btn").textContent =
+        currentLanguage === "ar"
+          ? "English"
+          : "العربية";
+
+
+      /*
+       * Re-apply LTR direction to phone numbers after
+       * the language changes.
+       */
+
+      document.querySelectorAll(".phone-number").forEach(phone => {
+
+        phone.style.direction = "ltr";
+        phone.style.unicodeBidi = "isolate";
+
+      });
+
+
+      localStorage.setItem(
+        "ganatLanguage",
+        currentLanguage
+      );
+    }
+
+
+    function toggleLanguage() {
+
+      currentLanguage =
+        currentLanguage === "ar"
+          ? "en"
+          : "ar";
+
+      updateLanguage();
+    }
+
+
+    updateLanguage();
+
+  </script>
+
+</body>
+</html>
